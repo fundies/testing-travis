@@ -118,10 +118,10 @@ OptionsParser::OptionsParser() : _desc("Options")
     
     // Universal Defaults
     _finalArgs["graphics"] = "OpenGL1";
-    _finalArgs["audio"] = "OpenAL";
+    _finalArgs["audio"] = "None";
     _finalArgs["widget"] = "None";
     _finalArgs["network"] = "None";
-    _finalArgs["collision"] = "Precise";
+    _finalArgs["collision"] = "None";
     _finalArgs["mode"] = "Debug";
     
     // Compiler Defaults
