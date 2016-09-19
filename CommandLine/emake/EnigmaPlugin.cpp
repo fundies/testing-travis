@@ -89,7 +89,7 @@ void EnigmaPlugin::SetDefinitions(const char* def)
 	plugin_DefinitionsModified("", def);
 }
 
-void EnigmaPlugin::BuildGame(EnigmaStruct* data, GameMode mode, const char* fpath)
+int EnigmaPlugin::BuildGame(EnigmaStruct* data, GameMode mode, const char* fpath)
 {
 	const char* currentResource = plugin_FirstResource();
     while (!plugin_ResourcesAtEnd())
@@ -97,7 +97,7 @@ void EnigmaPlugin::BuildGame(EnigmaStruct* data, GameMode mode, const char* fpat
         currentResource = plugin_NextResource();
     }
     
-    plugin_CompileEGM(data, fpath, mode);
+    return plugin_CompileEGM(data, fpath, mode);
 }
 
 
