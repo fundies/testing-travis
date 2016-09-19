@@ -28,6 +28,8 @@ int main(int argc, char* argv[])
 		else if (options.GetOption("mode") == "Design")
 			mode = emode_design;
 		
-		plugin.BuildGame(game.ConstructGame(), mode, options.GetOption("output").c_str());
+		return plugin.BuildGame(game.ConstructGame(), mode, options.GetOption("output").c_str());
 	}
+	
+	return 0;
 }
