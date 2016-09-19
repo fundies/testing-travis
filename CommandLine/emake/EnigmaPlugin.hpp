@@ -30,7 +30,7 @@ public:
 	int Init();
 	void SetCompiler(const char* def);
 	void SetDefinitions(const char* def);
-	void BuildGame(EnigmaStruct* data, GameMode mode, const char* fpath);
+	int BuildGame(EnigmaStruct* data, GameMode mode, const char* fpath);
     
 private:
 	std::function<const char*(EnigmaCallbacks*)> plugin_Init = nullptr;
