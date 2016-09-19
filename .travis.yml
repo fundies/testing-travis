@@ -7,10 +7,10 @@ compiler:
 before_install:
   - sudo dpkg --add-architecture i386
   - sudo apt-get update
-  - sudo apt-get install build-essential g++ clang-3.5 zlib1g-dev libglu1-mesa-dev libalure-dev libvorbisfile3 libvorbis-dev libdumb1-dev libboost-all-dev libc++-dev libsfml-dev gcc-multilib g++-multilib libc6:i386 libncurses5:i386 libstdc++6:i386 lib32z1-dev libglu1-mesa-dev:i386
+  #- sudo apt-get install build-essential g++ clang-3.5 zlib1g-dev libglu1-mesa-dev libalure-dev libvorbisfile3 libvorbis-dev libdumb1-dev libboost-all-dev libc++-dev libsfml-dev gcc-multilib g++-multilib libc6:i386 libncurses5:i386 libstdc++6:i386 lib32z1-dev libglu1-mesa-dev:i386
   - sudo apt-cache policy libglu1-mesa-dev libglu1-mesa-dev:i386
 install:
-  - python install.py
+  #- python install.py
 script: 
   #- make
   #- make emake
@@ -26,7 +26,7 @@ script:
   #- ./emake -o /tmp/test --compiler clang32
   
   # Linux Graphics
-  - ./emake -o /tmp/test --graphics OpenGL3
+  #- ./emake -o /tmp/test --graphics OpenGL3
   
   # Linux Audio
   #- ./emake -o /tmp/test --audio OpenAL
