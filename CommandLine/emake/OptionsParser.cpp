@@ -84,9 +84,10 @@ OptionsParser::OptionsParser() : _desc("Options")
 	("audio,a", opt::value<std::string>(), "Audio System (OpenAL, DirectSound, SFML, None)")
 	("widgets,W", opt::value<std::string>(), "Widget System (GTK, None)")
 	("network,n", opt::value<std::string>(), "Networking System (Async, Berkeley, DirectPlay)")
+	("collision,c", opt::value<std::string>(), "Collision System");
 	("platform,p", opt::value<std::string>(), "Target Platform (XLib, Win32, Cocoa)")
 	("extensions,e", opt::value<std::string>(), "Extensions (Paths, Timelines, Particles)")
-	("compiler,c", opt::value<std::string>(), "Compiler.ey Descriptor");
+	("compiler,x", opt::value<std::string>(), "Compiler.ey Descriptor");
 
 	
 	_handler["info"] = std::bind(&OptionsParser::printInfo, this, std::placeholders::_1);

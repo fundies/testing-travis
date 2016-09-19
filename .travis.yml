@@ -5,11 +5,43 @@ language: cpp
 compiler:
   - gcc
 before_install:
-  - sudo apt-get install g++ zlib1g-dev libglu1-mesa-dev libalure-dev libvorbisfile3 libvorbis-dev libdumb1-dev libboost-all-dev
+  - sudo apt-get install clang-3.5 g++ zlib1g-dev libglu1-mesa-dev libalure-dev libvorbisfile3 libvorbis-dev libdumb1-dev libboost-all-dev
 install:
   - python install.py
 script: 
   - make
   - make emake
+  # Linux: Minimal Build
   - ./emake -o /tmp/test
-  - ./emake -o /tmp/test -g OpenGL3
+  - ./emake -o /tmp/test --mode Debug
+  - ./emake -o /tmp/test --mode Run
+  - ./emake -o /tmp/test --mode Compile
+  
+  # Linux Compilers
+  - ./emake -o /tmp/test --compiler gcc32
+  - ./emake -o /tmp/test --compiler clang
+  - ./emake -o /tmp/test --compiler clang32
+  
+  # Linux Graphics
+  - ./emake -o /tmp/test --graphics OpenGL3
+  
+  # Linux Audio
+  - ./emake -o /tmp/test --audio OpenAL
+  - ./emake -o /tmp/test --audio SFML
+  
+  # Linux Networking
+  - ./emake -o /tmp/test --network Asynchronous
+  - ./emake -o /tmp/test --network BerkeleySockets
+  
+  # Linux Widgets
+  - ./emake -o /tmp/test --widgets GTK+
+  
+  # Linux Collision
+  - ./emake -o /tmp/test --collision BBox
+  - ./emake -o /tmp/test --collision Precise
+  
+  # Linux Extensions
+  - ./emake -o /tmp/test --extensions Paths
+  - ./emake -o /tmp/test --collision BBox --extensions Paths,MotionPlanning
+  - ./emake -o /tmp/test --extensions Alarms
+  - ./emake -o /tmp/test --extensions Timelines
