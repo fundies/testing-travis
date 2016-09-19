@@ -1,3 +1,4 @@
+emake
 hs_err_pid*.log
 searchdirs.txt
 redirfile.txt

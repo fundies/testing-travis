@@ -107,14 +107,14 @@ dllexport const char* libInit(EnigmaCallbacks* ecs)
   current_language = languages[current_language_name] = new lang_CPP();
   
   cout << "Reading GCC builtins" << endl;
-  const char* a = establish_bearings("Compilers/" CURRENT_PLATFORM_NAME "/gcc.ey");
-  if (a)
-    cout << "ERROR: " << a << endl << "See scrollback for more information.\n";
+  //const char* a = establish_bearings("Compilers/" CURRENT_PLATFORM_NAME "/MinGW32.ey");
+  //if (a)
+    //cout << "ERROR: " << a << endl << "See scrollback for more information.\n";
   
   cout << "Creating parse context" << endl;
   main_context = new jdi::context;
   
-  return a;
+  return 0;
 }
 
 dllexport void libFree() {

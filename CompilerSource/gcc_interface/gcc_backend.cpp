@@ -257,7 +257,7 @@ const char* establish_bearings(const char *compiler)
   return 0;
 }
 
-/*dllexport const char* gccDefinePath(const char* compiler)
+dllexport const char* gccDefinePath(const char* compiler)
 {
   return establish_bearings(compiler);
-}*/
+}
