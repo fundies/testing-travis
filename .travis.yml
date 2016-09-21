@@ -10,15 +10,7 @@ before_install:
   - sudo apt-get install build-essential g++ clang-3.5 libglu1-mesa-dev zlib1g-dev libalure-dev libvorbisfile3 libvorbis-dev 
       libdumb1-dev libboost-all-dev libc++-dev libsfml-dev gcc-multilib g++-multilib libc6:i386 libncurses5:i386 
       libstdc++6:i386 lib32z1-dev libglu1-mesa:i386 libx11-6:i386
-  
-  # Ubuntu has many multiarch bugs...
-  # https://bugs.launchpad.net/ubuntu/+source/libglu/+bug/1625538
-  # https://bugs.launchpad.net/ubuntu/+source/zlib/+bug/1155307
-  - sudo ln -s /usr/include/x86_64-linux-gnu/zconf.h /usr/include
-  - wget http://mirrors.kernel.org/ubuntu/pool/main/libg/libglu/libglu1-mesa-dev_9.0.0-2_i386.deb
-  - sudo dpkg --force-all -i libglu1-mesa-dev_9.0.0-2_i386.deb
-  - sudo ln -s /usr/lib/i386-linux-gnu/mesa/libGL.so.1 /usr/lib/i386-linux-gnu/libGL.so
-  - sudo ln -s /usr/lib/i386-linux-gnu/libX11.so.6 /usr/lib/i386-linux-gnu/libX11.so
+
 install:
   - python install.py
 script: 
@@ -26,35 +18,35 @@ script:
   - make emake
   # Linux: Minimal Build
   - ./emake -o /tmp/test
-  - ./emake -o /tmp/test --mode Debug
-  - ./emake -o /tmp/test --mode Run
-  - ./emake -o /tmp/test --mode Compile
+  #- ./emake -o /tmp/test --mode Debug
+  #- ./emake -o /tmp/test --mode Run
+  #- ./emake -o /tmp/test --mode Compile
   
   # Linux Compilers
   - ./emake -o /tmp/test --compiler gcc32
-  - ./emake -o /tmp/test --compiler clang
-  - ./emake -o /tmp/test --compiler clang32
+  #- ./emake -o /tmp/test --compiler clang
+  #- ./emake -o /tmp/test --compiler clang32
   
   # Linux Graphics
-  - ./emake -o /tmp/test --graphics OpenGL3
+  #- ./emake -o /tmp/test --graphics OpenGL3
   
   # Linux Audio
-  - ./emake -o /tmp/test --audio OpenAL
-  - ./emake -o /tmp/test --audio SFML
+  #- ./emake -o /tmp/test --audio OpenAL
+  #- ./emake -o /tmp/test --audio SFML
   
   # Linux Networking
-  - ./emake -o /tmp/test --network Asynchronous
-  - ./emake -o /tmp/test --network BerkeleySockets
+  #- ./emake -o /tmp/test --network Asynchronous
+  #- ./emake -o /tmp/test --network BerkeleySockets
   
   # Linux Widgets
-  - ./emake -o /tmp/test --widgets GTK+
+  #- ./emake -o /tmp/test --widgets GTK+
   
   # Linux Collision
-  - ./emake -o /tmp/test --collision BBox
-  - ./emake -o /tmp/test --collision Precise
+  #- ./emake -o /tmp/test --collision BBox
+  #- ./emake -o /tmp/test --collision Precise
   
   # Linux Extensions
-  - ./emake -o /tmp/test --extensions Paths
-  - ./emake -o /tmp/test --collision BBox --extensions Paths,MotionPlanning
-  - ./emake -o /tmp/test --extensions Alarms
-  - ./emake -o /tmp/test --extensions Timelines
+  #- ./emake -o /tmp/test --extensions Paths
+  #- ./emake -o /tmp/test --collision BBox --extensions Paths,MotionPlanning
+  #- ./emake -o /tmp/test --extensions Alarms
+  #- ./emake -o /tmp/test --extensions Timelines
