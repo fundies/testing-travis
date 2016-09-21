@@ -12,6 +12,7 @@ before_install:
   # Ubuntu has many bugs...
   # https://bugs.launchpad.net/ubuntu/+source/libglu/+bug/1625538
   # https://bugs.launchpad.net/ubuntu/+source/zlib/+bug/1155307
+  - sudo ln -s /usr/include/x86_64-linux-gnu/zconf.h /usr/include
   - wget http://mirrors.kernel.org/ubuntu/pool/main/libg/libglu/libglu1-mesa-dev_9.0.0-2_i386.deb
   - sudo dpkg --force-all -i libglu1-mesa-dev_9.0.0-2_i386.deb
 install:
