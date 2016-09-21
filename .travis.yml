@@ -17,11 +17,13 @@ before_install:
   - sudo ln -s /usr/include/x86_64-linux-gnu/zconf.h /usr/include
   - wget http://mirrors.kernel.org/ubuntu/pool/main/libg/libglu/libglu1-mesa-dev_9.0.0-2_i386.deb
   - sudo dpkg --force-all -i libglu1-mesa-dev_9.0.0-2_i386.deb
+  - sudo updatedb
+  - locate libGL
 install:
   - python install.py
 script: 
-  - make
-  - make emake
+  #- make
+  #- make emake
   # Linux: Minimal Build
   #- ./emake -o /tmp/test
   #- ./emake -o /tmp/test --mode Debug
@@ -29,7 +31,7 @@ script:
   #- ./emake -o /tmp/test --mode Compile
   
   # Linux Compilers
-  - ./emake -o /tmp/test --compiler gcc32
+  #- ./emake -o /tmp/test --compiler gcc32
   #- ./emake -o /tmp/test --compiler clang
   #- ./emake -o /tmp/test --compiler clang32
   
