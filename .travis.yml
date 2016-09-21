@@ -8,18 +8,8 @@ before_install:
   - sudo dpkg --add-architecture i386
   - sudo apt-get update
   - sudo apt-get install build-essential g++ clang-3.5 zlib1g-dev libalure-dev libvorbisfile3 libvorbis-dev libdumb1-dev libboost-all-dev libc++-dev libsfml-dev gcc-multilib g++-multilib libc6:i386 libncurses5:i386 libstdc++6:i386 lib32z1-dev
-  - wget https://launchpad.net/ubuntu/+source/libglu/9.0.0-2.1/+build/8179007/+files/libglu1-mesa_9.0.0-2.1_i386.deb
-  - wget https://launchpad.net/ubuntu/+source/libglu/9.0.0-2.1/+build/8179007/+files/libglu1-mesa-dev_9.0.0-2.1_i386.deb
-  - wget https://launchpad.net/ubuntu/+source/libglu/9.0.0-2.1/+build/8179004/+files/libglu1-mesa_9.0.0-2.1_amd64.deb
-  - wget https://launchpad.net/ubuntu/+source/libglu/9.0.0-2.1/+build/8179004/+files/libglu1-mesa-dev_9.0.0-2.1_amd64.deb
-  - sudo dpkg -r libglu1-mesa-dev:amd64
-  - sudo dpkg -r libglu1-mesa:amd64
-  - sudo dpkg -r libglu1-mesa-dev:i386
-  - sudo dpkg -r libglu1-mesa:i386
-  - sudo dpkg --force-all -i libglu1-mesa_9.0.0-2.1_i386.deb
-  - sudo dpkg --force-all -i libglu1-mesa-dev_9.0.0-2.1_i386.deb
-  - sudo dpkg --force-all -i libglu1-mesa-dev_9.0.0-2.1_amd64.deb
-  - sudo dpkg --force-all -i libglu1-mesa_9.0.0-2.1_amd64.deb
+  - wget http://mirrors.kernel.org/ubuntu/pool/main/libg/libglu/libglu1-mesa-dev_9.0.0-2_i386.deb
+  - sudo dpkg --force-all -i libglu1-mesa-dev_9.0.0-2_i386.deb
 install:
   - python install.py
 script: 
