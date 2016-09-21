@@ -11,14 +11,15 @@ before_install:
       libdumb1-dev libboost-all-dev libc++-dev libsfml-dev gcc-multilib g++-multilib libc6:i386 libncurses5:i386 
       libstdc++6:i386 lib32z1-dev libglu1-mesa:i386 libx11-6:i386
   
-  # Ubuntu has many bugs...
+  # Ubuntu has many multiarch bugs...
   # https://bugs.launchpad.net/ubuntu/+source/libglu/+bug/1625538
   # https://bugs.launchpad.net/ubuntu/+source/zlib/+bug/1155307
   - sudo ln -s /usr/include/x86_64-linux-gnu/zconf.h /usr/include
   - wget http://mirrors.kernel.org/ubuntu/pool/main/libg/libglu/libglu1-mesa-dev_9.0.0-2_i386.deb
   - sudo dpkg --force-all -i libglu1-mesa-dev_9.0.0-2_i386.deb
+  - sudo ln -s /usr/lib/i386-linux-gnu/mesa/libGL.so.1 /usr/lib/i386-linux-gnu/libGL.so
   - sudo updatedb
-  - locate libGL
+  - sudo locate libX11
 install:
   - python install.py
 script: 
