@@ -27,36 +27,36 @@ script:
   - make
   - make emake
   # Linux: Minimal Build
-  #- ./emake -o /tmp/test
-  #- ./emake -o /tmp/test --mode Debug
-  #- ./emake -o /tmp/test --mode Run
-  #- ./emake -o /tmp/test --mode Compile
+  - ./emake -o /tmp/test
+  - ./emake -o /tmp/test --mode Debug
+  - ./emake -o /tmp/test --mode Run
+  - ./emake -o /tmp/test --mode Compile
   
   # Linux Compilers
   - ./emake -o /tmp/test --compiler gcc32
-  #- ./emake -o /tmp/test --compiler clang
-  #- ./emake -o /tmp/test --compiler clang32
+  - ./emake -o /tmp/test --compiler clang
+  - ./emake -o /tmp/test --compiler clang32
   
   # Linux Graphics
-  #- ./emake -o /tmp/test --graphics OpenGL3
+  - ./emake -o /tmp/test --graphics OpenGL3
   
   # Linux Audio
-  #- ./emake -o /tmp/test --audio OpenAL
-  #- ./emake -o /tmp/test --audio SFML
+  - ./emake -o /tmp/test --audio OpenAL
+  - ./emake -o /tmp/test --audio SFML
   
   # Linux Networking
-  #- ./emake -o /tmp/test --network Asynchronous
-  #- ./emake -o /tmp/test --network BerkeleySockets
+  - ./emake -o /tmp/test --network Asynchronous
+  - ./emake -o /tmp/test --network BerkeleySockets
   
   # Linux Widgets
-  #- ./emake -o /tmp/test --widgets GTK+
+  - ./emake -o /tmp/test --widgets GTK+
   
   # Linux Collision
-  #- ./emake -o /tmp/test --collision BBox
-  #- ./emake -o /tmp/test --collision Precise
+  - ./emake -o /tmp/test --collision BBox
+  - ./emake -o /tmp/test --collision Precise
   
   # Linux Extensions
-  #- ./emake -o /tmp/test --extensions Paths
-  #- ./emake -o /tmp/test --collision BBox --extensions Paths,MotionPlanning
-  #- ./emake -o /tmp/test --extensions Alarms
-  #- ./emake -o /tmp/test --extensions Timelines
+  - ./emake -o /tmp/test --extensions Paths
+  - ./emake -o /tmp/test --collision BBox --extensions Paths,MotionPlanning
+  - ./emake -o /tmp/test --extensions Alarms
+  - ./emake -o /tmp/test --extensions Timelines
