@@ -23,8 +23,8 @@ before_install:
 install:
   - python install.py
 script: 
-  #- make
-  #- make emake
+  - make
+  - make emake
   # Linux: Minimal Build
   #- ./emake -o /tmp/test
   #- ./emake -o /tmp/test --mode Debug
@@ -32,7 +32,7 @@ script:
   #- ./emake -o /tmp/test --mode Compile
   
   # Linux Compilers
-  #- ./emake -o /tmp/test --compiler gcc32
+  - ./emake -o /tmp/test --compiler gcc32
   #- ./emake -o /tmp/test --compiler clang
   #- ./emake -o /tmp/test --compiler clang32
   
