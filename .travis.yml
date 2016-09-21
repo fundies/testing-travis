@@ -14,10 +14,7 @@ before_install:
   # Ubuntu is a turd
   - sudo ln -s /usr/lib/i386-linux-gnu/mesa/libGL.so.1 /usr/lib/i386-linux-gnu/libGL.so
   - sudo ln -s /usr/lib/i386-linux-gnu/libX11.so.6 /usr/lib/i386-linux-gnu/libX11.so
-  
-  - sudo updatedb
-  - sudo locate libGLU
-
+  - sudo ln -s /usr/lib/i386-linux-gnu/libGLU.so.1 /usr/lib/i386-linux-gnu/libGLU.so
 
 install:
   - python install.py
