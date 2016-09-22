@@ -96,7 +96,7 @@ OptionsParser::OptionsParser() : _desc("Options")
 	_handler["mode"] = std::bind(&OptionsParser::mode, this, std::placeholders::_1);
 	_handler["graphics"] = std::bind(&OptionsParser::graphics, this, std::placeholders::_1);
 	_handler["audio"] = std::bind(&OptionsParser::audio, this, std::placeholders::_1);
-	_handler["collision"] = std::bind(&OptionsParser::audio, this, std::placeholders::_1);
+	_handler["collision"] = std::bind(&OptionsParser::collision, this, std::placeholders::_1);
 	_handler["widgets"] = std::bind(&OptionsParser::widgets, this, std::placeholders::_1);
 	_handler["network"] = std::bind(&OptionsParser::network, this, std::placeholders::_1);
 	_handler["platform"] = std::bind(&OptionsParser::platform, this, std::placeholders::_1);
