@@ -30,7 +30,5 @@ env:
     - COMPILER=gcc PLATFORM=xlib MODE=Compile GRAPHICS=OpenGL1 AUDIO=None COLLISION=None NETWORK=None WIDGETS=None EXTENSIONS=""
 
 script:
-  - ./emake --mode Rebuild -o /tmp/test
-  - ./emake --compiler $COMPILER --platform $PLATFORM --graphics $GRAPHICS --audio $AUDIO --collision $COLLISION
-      --network $NETWORK --widgets $WIDGETS -o /tmp/test
+  - ./travis.sh
 
