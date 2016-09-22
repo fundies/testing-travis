@@ -88,8 +88,8 @@ all: compile_game
 
 clean:
 	$(RM) $(OUTPUTNAME) $(RESOURCEBINARY)
-	$(FIND) $(OBJDIR) -name "*.o" -exec $(RM) -rf {} \;
-	$(FIND) $(OBJDIR) -name "*.d" -exec $(RM) -rf {} \;
+	$(FIND) $(WORKDIR).eobjs/$(COMPILEPATH) -name "*.o" -exec $(RM) -rf {} \;
+	$(FIND) $(WORKDIR).eobjs/$(COMPILEPATH) -name "*.d" -exec $(RM) -rf {} \;
 	
 cleandep:
 	$(RM) $(CLEANDEPS)
