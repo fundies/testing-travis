@@ -97,7 +97,7 @@ OptionsParser::OptionsParser() : _desc("Options")
 	_handler["graphics"] = std::bind(&OptionsParser::graphics, this, std::placeholders::_1);
 	_handler["audio"] = std::bind(&OptionsParser::audio, this, std::placeholders::_1);
 	_handler["collision"] = std::bind(&OptionsParser::audio, this, std::placeholders::_1);
-	_handler["widget"] = std::bind(&OptionsParser::widgets, this, std::placeholders::_1);
+	_handler["widgets"] = std::bind(&OptionsParser::widgets, this, std::placeholders::_1);
 	_handler["network"] = std::bind(&OptionsParser::network, this, std::placeholders::_1);
 	_handler["platform"] = std::bind(&OptionsParser::platform, this, std::placeholders::_1);
 	_handler["extensions"] = std::bind(&OptionsParser::extensions, this, std::placeholders::_1);
@@ -375,13 +375,18 @@ int OptionsParser::workdir(const std::string &str)
 
 int OptionsParser::mode(const std::string &str)
 {
-	if (str == "Run" || str == "Debug" || str == "Compile" || str == "Design")
+	if (str == "Run" || str == "Debug" || str == "Compile" || str == "Design" || str == "Rebuild")
 	{
 		_finalArgs["mode"] = str;
 		return OPTIONS_SUCCESS;
 	}
 	else
-		std::cerr << "OPTIONS_ERROR: invalid mode: " << str << std::endl;
+		std::cerr << "OPTIONS_ERROR: invalid mode: " << str << std::endl
+			      << "Available Modes: " << std::endl 
+			      << "Run" << std::endl
+			      << "Compile" << std::endl
+			      << "Design" << std::endl
+			      << "Rebuild" << std::endl;
 
 	return OPTIONS_ERROR;
 }

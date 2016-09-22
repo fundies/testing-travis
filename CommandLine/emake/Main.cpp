@@ -12,7 +12,6 @@ int main(int argc, char* argv[])
 	{
 		EnigmaPlugin plugin;
 		plugin.Init();
-		//plugin.SetCompiler("/home/greg/enigma-dev/Compilers/Linux/MinGW32.ey");
 		plugin.SetDefinitions(options.APIyaml());
 		
 		Game game;
@@ -27,6 +26,9 @@ int main(int argc, char* argv[])
 			mode = emode_debug;
 		else if (options.GetOption("mode") == "Design")
 			mode = emode_design;
+		else if (options.GetOption("mode") == "Rebuild")
+			mode = emode_rebuild;
+			
 		
 		return plugin.BuildGame(game.ConstructGame(), mode, options.GetOption("output").c_str());
 	}

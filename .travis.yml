@@ -27,7 +27,8 @@ script:
   #- ./emake -o /tmp/test --mode Run
   #- ./emake -o /tmp/test --mode Compile
   
-  # Linux Compilers
+  # Linux Compilers *Need to call rebuild for these*
+  - ./emake -o /tmp/test --mode Rebuild
   - ./emake -o /tmp/test --compiler gcc32
   #- ./emake -o /tmp/test --compiler clang
   #- ./emake -o /tmp/test --compiler clang32
