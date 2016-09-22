@@ -16,44 +16,21 @@ before_install:
   - sudo ln -s /usr/lib/i386-linux-gnu/libX11.so.6 /usr/lib/i386-linux-gnu/libX11.so
   - sudo ln -s /usr/lib/i386-linux-gnu/libGLU.so.1 /usr/lib/i386-linux-gnu/libGLU.so
   - sudo ln -s /usr/include/x86_64-linux-gnu/zconf.h /usr/include
-
+  
 install:
-  - python install.py
-script: 
   - make
   - make emake
-  # Linux: Minimal Build
-  - ./emake -o /tmp/test
-  - ./emake -o /tmp/test --mode Debug
-  - ./emake -o /tmp/test --mode Run
-  - ./emake -o /tmp/test --mode Compile
-  
-  # Linux Compilers *Need to call rebuild for these*
-  - ./emake -o /tmp/test --mode Rebuild && ./emake -o /tmp/test --compiler gcc32
-  - ./emake -o /tmp/test --mode Rebuild && ./emake -o /tmp/test --compiler clang
-  - ./emake -o /tmp/test --mode Rebuild && ./emake -o /tmp/test --compiler clang32
-  - ./emake -o /tmp/test --mode Rebuild
-  
-  # Linux Graphics
-  - ./emake -o /tmp/test --graphics OpenGL3
-  
-  # Linux Audio
-  - ./emake -o /tmp/test --audio OpenAL
-  - ./emake -o /tmp/test --audio SFML
-  
-  # Linux Networking
-  - ./emake -o /tmp/test --network Asynchronous
-  - ./emake -o /tmp/test --network BerkeleySockets
-  
-  # Linux Widgets
-  - ./emake -o /tmp/test --widgets GTK+
-  
-  # Linux Collision
-  - ./emake -o /tmp/test --collision BBox
-  - ./emake -o /tmp/test --collision Precise
-  
-  # Linux Extensions
-  - ./emake -o /tmp/test --extensions Paths
-  - ./emake -o /tmp/test --collision BBox --extensions Paths,MotionPlanning
-  - ./emake -o /tmp/test --extensions Alarms
-  - ./emake -o /tmp/test --extensions Timelines
+
+env:
+  matrix:
+  #BEGIN LINUX
+    # Game Modes
+    - COMPILER=gcc PLATFORM=xlib MODE=Run GRAPHICS=OpenGL1 AUDIO=None COLLISION=None NETWORK=None WIDGETS=None EXTENSIONS=""
+    - COMPILER=gcc PLATFORM=xlib MODE=Debug GRAPHICS=OpenGL1 AUDIO=None COLLISION=None NETWORK=None WIDGETS=None EXTENSIONS=""
+    - COMPILER=gcc PLATFORM=xlib MODE=Compile GRAPHICS=OpenGL1 AUDIO=None COLLISION=None NETWORK=None WIDGETS=None EXTENSIONS=""
+
+script:
+  - ./emake --mode Rebuild -o /tmp/test
+  - ./emake --compiler $COMPILER --platform $PLATFORM --graphics $GRAPHICS --audio $AUDIO --collision $COLLISION
+      --network $NETWORK --widgets $WIDGETS -o /tmp/test
+
