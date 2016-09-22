@@ -20,6 +20,7 @@ before_install:
 install:
   - make
   - make emake
+  - chmod +x ./travis.sh
 
 env:
   matrix:
