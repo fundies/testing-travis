@@ -67,5 +67,5 @@ env:
     - COMPILER=gcc PLATFORM=xlib MODE=Debug GRAPHICS=OpenGL1 AUDIO=None COLLISION=None NETWORK=None WIDGETS=None EXTENSIONS="Timelines"
   #END LINUX
 script:
- ./emake --compiler ${COMPILER} --mode ${MODE} --platform ${PLATFORM} --graphics ${GRAPHICS} --audio ${AUDIO} --collision ${COLLISION} --network ${NETWORK} --widgets ${WIDGETS} --extensions ${EXTENSIONS} -o /tmp/test
+  - ./emake --compiler ${COMPILER} --mode ${MODE} --platform ${PLATFORM} --graphics ${GRAPHICS} --audio ${AUDIO} --collision ${COLLISION} --network ${NETWORK} --widgets ${WIDGETS} --extensions ${EXTENSIONS} -o /tmp/test
 
