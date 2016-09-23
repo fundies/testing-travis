@@ -479,16 +479,22 @@ int OptionsParser::platform(const std::string &str)
 
 int OptionsParser::extensions(const std::string &str)
 {
-	list_t ext = splitString(str);
-	
-	_finalArgs["extensions"] = "";
-	for (auto &&e : ext)
+	if (str == "None")
 	{
-		int valid = searchAPI("Extensions", e);
-		if (valid == OPTIONS_ERROR)
-			return OPTIONS_ERROR;
+		_finalArgs["extensions"] = "";
 	}
-	
+	else
+	{
+		list_t ext = splitString(str);
+		
+		_finalArgs["extensions"] = "";
+		for (auto &&e : ext)
+		{
+			int valid = searchAPI("Extensions", e);
+			if (valid == OPTIONS_ERROR)
+				return OPTIONS_ERROR;
+		}
+	}
 	
 	return OPTIONS_SUCCESS;
 }
